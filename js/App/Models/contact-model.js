@@ -11,7 +11,11 @@ define(
             },
 
             url: '',
-            urlRoot: ''
+            urlRoot: '',
+
+            getStatus: function () {
+                return 'user ' + this.get('name') + ' ' +  this.get('surname') + ' has been added to list';
+            }
         });
 
         return contact;

@@ -1,5 +1,5 @@
 define(
-    'Views/circles-view',
+    'views/circles-view',
     ['jbone', 'lodash', 'backbone', 'react'],
     function ($, _, Backbone, React) {
         var circlesPage;

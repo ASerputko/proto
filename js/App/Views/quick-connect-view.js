@@ -1,27 +1,23 @@
 define(
-    ['react', 'jsx!Views/single-contact-view'],
-    function (React, singleContact) {
-        var quickConnectPage;
+	['react', 'jsx!views/single-contact-view', 'jsx!templates/quick-connect-template'],
+	function (React, singleContact, template) {
+		var quickConnectPage;
 
-        quickConnectPage = React.createClass({
-            render: function () {
-                var contacts = this.props.dataSet.map(function (contact) {
-                    return <singleContact contact={ contact } />;
-                });
-                return (
-                    <div>
-                        <h3>this is quickConnect</h3>
-                        { contacts }
-                        <div className='status'></div>
-                        <button onClick={ this.returnToMain }>Return</button>
-                    </div>
-                );
-            },
-            returnToMain: function () {
-                window.router.navigate('', { trigger: true });
-            }
-        });
+		quickConnectPage = React.createClass({
+			render: function () {
+				var contacts = this.props.dataSet.map(this.addOne, this);
+				return template.call(this, contacts);
+			},
 
-        return quickConnectPage;
-    }
+			returnToMain: function () {
+				window.router.navigate('', { trigger: true });
+			},
+
+			addOne: function (model) {
+				return <singleContact model={ model } />;
+			}
+		});
+
+		return quickConnectPage;
+	}
 );

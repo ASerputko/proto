@@ -1,6 +1,6 @@
 define(
-    'Views/main-page-view',
-    ['jbone', 'lodash', 'backbone', 'react', 'jsx!Views/button-view'],
+    'views/main-page-view',
+    ['jbone', 'lodash', 'backbone', 'react', 'jsx!views/button-view'],
     function ($, _, Backbone, React, buttonEl) {
         /** @jsx react.DOM */
         var mainPageView,

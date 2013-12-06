@@ -1,19 +1,12 @@
 define(
-    'Views/button-view',
-    ['react'],
-    function (React) {
+    'views/button-view',
+    ['react', 'jsx!templates/button-template'],
+    function (React, template) {
         var buttonView;
 
         buttonView = React.createClass({
             render: function () {
-                return (
-                    <li className="button-container">
-                        <button id={ this.props.button.id }
-                            onClick={ this.handleClick }>
-                            { this.props.button.name }
-                        </button>
-                    </li>
-                );
+                return template.call(this);;
             },
             handleClick: function () {
                 var location = 'page/' + this.props.button.location;
